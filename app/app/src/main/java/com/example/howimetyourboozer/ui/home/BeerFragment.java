@@ -22,7 +22,7 @@ public class BeerFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         beerViewModel =
                 new ViewModelProvider(this).get(BeerViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_beer, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
         beerViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

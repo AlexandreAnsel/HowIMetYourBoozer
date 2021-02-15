@@ -22,7 +22,7 @@ public class WineFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         wineViewModel =
                 new ViewModelProvider(this).get(WineViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View root = inflater.inflate(R.layout.fragment_wine, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
         wineViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
