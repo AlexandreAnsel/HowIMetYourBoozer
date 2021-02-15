@@ -1,4 +1,4 @@
-package com.example.howimetyourboozer.ui.home;
+package com.example.howimetyourboozer.ui.beer;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

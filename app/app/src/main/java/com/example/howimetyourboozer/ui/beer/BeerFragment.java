@@ -1,4 +1,4 @@
-package com.example.howimetyourboozer.ui.home;
+package com.example.howimetyourboozer.ui.beer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.example.howimetyourboozer.ui.dashboard;
+package com.example.howimetyourboozer.ui.wine;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

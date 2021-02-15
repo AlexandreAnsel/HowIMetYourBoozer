@@ -1,16 +1,16 @@
-package com.example.howimetyourboozer.ui.dashboard;
+package com.example.howimetyourboozer.ui.favorites;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class WineViewModel extends ViewModel {
+public class FavoritesViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public WineViewModel() {
+    public FavoritesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is wine fragment");
+        mText.setValue("This is favorites fragment");
     }
 
     public LiveData<String> getText() {

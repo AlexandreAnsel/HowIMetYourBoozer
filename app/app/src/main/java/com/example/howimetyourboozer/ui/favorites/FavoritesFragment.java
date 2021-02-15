@@ -1,4 +1,4 @@
-package com.example.howimetyourboozer.ui.notifications;
+package com.example.howimetyourboozer.ui.favorites;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.howimetyourboozer.ui.home.BeerFragment"
+        android:name="com.example.howimetyourboozer.ui.beer.BeerFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_beer" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.howimetyourboozer.ui.dashboard.WineFragment"
+        android:name="com.example.howimetyourboozer.ui.wine.WineFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_wine" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.howimetyourboozer.ui.notifications.FavoritesFragment"
+        android:name="com.example.howimetyourboozer.ui.favorites.FavoritesFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_favorites" />
 </navigation>
