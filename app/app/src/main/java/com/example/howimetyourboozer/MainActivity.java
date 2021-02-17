@@ -2,6 +2,7 @@ package com.example.howimetyourboozer;
 
 import android.os.Bundle;
 
+import com.example.howimetyourboozer.controllers.Manager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +13,15 @@ import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Manager manager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        manager = Manager.getInstance();
+        manager.setActivity(this);
+        manager.getBeers();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
