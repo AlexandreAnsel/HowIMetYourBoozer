@@ -34,9 +34,6 @@ public class WineFragment extends Fragment implements MyRecyclerViewAdapter.Item
         // data to populate the RecyclerView with
         ArrayList<Drink> drinks = new ArrayList<>();
 
-        for (int i = 1; i < 21 ; i++) {
-            drinks.add(new Drink(i,"Gewurztraminer ","Vin Blanc", 11.0f,"Un vin alsacien d'exception","https://www.alsace-vintage.com/media/catalog/product/cache/1/image/650x650/9df78eab33525d08d6e5fb8d27136e95/g/e/gewurzrtaminer_-_jean-marc_bernhard_1.png",10));
-        }
         // set up the RecyclerView
         RecyclerView recyclerView = root.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));

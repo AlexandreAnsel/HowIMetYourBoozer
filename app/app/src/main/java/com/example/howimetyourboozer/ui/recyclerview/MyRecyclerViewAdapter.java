@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.howimetyourboozer.R;
 import com.example.howimetyourboozer.database.model.Drink;
-import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -51,7 +50,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.textViewDrinkName.setText(drink.getName());
         holder.textViewDrinkType.setText(drink.getType());
         //Loading image using Glide framework
-        Glide.with(myContext).load("https://cdn4.iconfinder.com/data/icons/proglyphs-food/512/Beer-512.png").into(holder.imageView);
+        Glide.with(myContext).load(drink.getIcon()).into(holder.imageView);
     }
 
     // total number of rows

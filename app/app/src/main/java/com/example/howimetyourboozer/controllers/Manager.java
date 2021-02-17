@@ -2,8 +2,11 @@ package com.example.howimetyourboozer.controllers;
 
 import android.util.Log;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.howimetyourboozer.MainActivity;
 import com.example.howimetyourboozer.database.model.Drink;
+import com.example.howimetyourboozer.ui.beer.BeerFragment;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,11 +19,20 @@ public class Manager {
     private APIManager apiManager;
 
     private MainActivity mainActivity;
-    public void setActivity(MainActivity mainActivity) {
+    public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 
+    private BeerFragment fragment;
+    public void setFragment(BeerFragment fragment) {
+        this.fragment = fragment;
+    }
+
     private List<Drink> beers;
+    public List<Drink> getBeers() {
+        return beers;
+    }
+
     private int numberPageBeers = 1;
 
     public static Manager getInstance() {
@@ -36,10 +48,12 @@ public class Manager {
 
     public void incrementNumberPageBeers(){
         numberPageBeers++;
-        if(beers.size() <= 50*numberPageBeers) getBeers();
+        getBeersFromAPI();
     }
 
-    public void getBeers() {
+    public void getBeersFromAPI() {
+        if(beers.size() >= 50*numberPageBeers) return;
+
         try {
             apiManager.getBeersByPage(numberPageBeers);
         } catch (IOException e) {
@@ -58,8 +72,14 @@ public class Manager {
 
     public void setBeers(List<Drink> listBeers){
         this.beers.addAll(listBeers);
-        if(mainActivity != null){
+        if(fragment != null){
             Log.i("Beers", "NB OF BEERS : " + this.beers.size());
+            mainActivity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    fragment.refreshRecycler();
+                }
+            });
         }
     }
 }
