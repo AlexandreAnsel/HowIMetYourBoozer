@@ -2,7 +2,7 @@ package com.example.howimetyourboozer.database.model;
 
 public class Drink {
 
-    private int id;
+    private String id;
     private String name;
     private String type;
     private float degree;
@@ -10,7 +10,7 @@ public class Drink {
     private String icon;
     private int mark;
 
-    public Drink(int id, String name, String type, float degree, String description, String icon, int mark) {
+    public Drink(String id, String name, String type, float degree, String description, String icon, int mark) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -20,11 +20,11 @@ public class Drink {
         this.mark = mark;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
