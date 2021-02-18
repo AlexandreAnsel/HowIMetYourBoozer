@@ -31,7 +31,11 @@ public class JSONConverter {
         String iconLink;
         try {
             JSONObject labels = jsonObject.getJSONObject("labels");
-            iconLink = labels.getString("medium");
+            try {
+                iconLink = labels.getString("medium");
+            } catch (JSONException e) {
+                iconLink = labels.getString("icon");
+            }
         } catch (JSONException e) {
             iconLink = "https://cdn4.iconfinder.com/data/icons/proglyphs-food/512/Beer-512.png";
         }
@@ -60,7 +64,7 @@ public class JSONConverter {
             abv = 0.0f;
         }
 
-        return new Drink(jsonObject.getString("id"), jsonObject.getString("name"),
+        return new Drink(jsonObject.getString("id"), jsonObject.getString("nameDisplay"),
                 type, abv,
                 description, iconLink, 0);
     }

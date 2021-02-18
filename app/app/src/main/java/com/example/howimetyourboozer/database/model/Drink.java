@@ -1,13 +1,24 @@
 package com.example.howimetyourboozer.database.model;
+import androidx.annotation.NonNull;
+import androidx.room.*;
 
-public class Drink {
+@Entity(tableName = "drink")
+public class Drink implements Comparable<Drink> {
 
+    @PrimaryKey
+    @NonNull
     private String id;
+    @ColumnInfo(name = "name")
     private String name;
+    @ColumnInfo(name = "type")
     private String type;
+    @ColumnInfo(name = "degree")
     private float degree;
+    @ColumnInfo(name = "description")
     private String description;
+    @ColumnInfo(name = "icon")
     private String icon;
+    @ColumnInfo(name = "mark")
     private int mark;
 
     public Drink(String id, String name, String type, float degree, String description, String icon, int mark) {
@@ -74,5 +85,22 @@ public class Drink {
 
     public void setMark(int mark) {
         this.mark = mark;
+    }
+
+    @Override
+    public int compareTo(Drink drink) {
+        return this.getId().compareTo(drink.getId());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if(o == this)
+            return true;
+
+        if(!(o instanceof Drink))
+            return false;
+
+        Drink d = (Drink)o;
+        return this.getId().equals(d.getId());
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HowIMetYourBoozer</string>
+    <string name="app_name">How I Met Your Boozer</string>
     <string name="title_home">Beer</string>
     <string name="title_dashboard">Wine</string>
     <string name="title_notifications">Favorites</string>
