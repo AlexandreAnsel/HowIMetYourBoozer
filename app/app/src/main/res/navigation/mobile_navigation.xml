@@ -3,23 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_beer">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_beer"
         android:name="com.example.howimetyourboozer.ui.fragments.BeerFragment"
-        android:label="@string/title_home"
+        android:label="@string/title_beers"
         tools:layout="@layout/fragment_recyclerview" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.howimetyourboozer.ui.wine.WineFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_wine" />
-
-    <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_favorites"
         android:name="com.example.howimetyourboozer.ui.fragments.FavoritesFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_favorites"
         tools:layout="@layout/fragment_favorites" />
 </navigation>

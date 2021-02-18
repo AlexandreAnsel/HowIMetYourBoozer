@@ -142,4 +142,9 @@ public class Manager {
             }
         });
     }
+
+    public void clearBeers() {
+        beers.clear();
+        numberPageBeers = 1;
+    }
 }

@@ -16,7 +16,12 @@ public class JSONConverter {
     public static List<Drink> JSONToListDrinks(JSONObject jsonObject) throws JSONException {
         List<Drink> drinks = new ArrayList<>();
 
-        JSONArray data = jsonObject.getJSONArray("data");
+        JSONArray data;
+        try {
+            data = jsonObject.getJSONArray("data");
+        } catch (JSONException e){
+            return drinks;
+        }
 
         for(int i = 0; i < data.length(); i++) {
             Log.i("Beers", "DRINK : " + i);
