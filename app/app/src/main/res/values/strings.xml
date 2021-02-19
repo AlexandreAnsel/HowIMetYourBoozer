@@ -1,4 +1,8 @@
 <resources>
+    <string name="nameDrink">Name</string>
+    <string name="degree">Degree</string>
+    <string name="type">Type</string>
+    <string name="description">Description</string>
     <string name="app_name">How I Met Your Boozer</string>
     <string name="title_beers">Beers</string>
     <string name="title_favorites">Favorites</string>
