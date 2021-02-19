@@ -6,6 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#e6e6e6</color>
     <color name="wine">#FF931628</color>
     <color name="beer">#F29829</color>
     <color name="primary">#F27C38</color>

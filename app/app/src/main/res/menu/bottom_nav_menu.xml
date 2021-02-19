@@ -2,18 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_beer"
         android:icon="@drawable/glass_mug_variant"
-        android:title="@string/title_home" />
+        android:title="@string/title_beers" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/glass_wine"
-        android:title="@string/title_dashboard" />
-
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/heart"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_favorites"
+        android:icon="@drawable/ic_heart_fill"
+        android:title="@string/title_favorites" />
 
 </menu>
