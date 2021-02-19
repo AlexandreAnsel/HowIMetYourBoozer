@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Manager manager;
 
+    private EditText searchText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setCustomView(R.layout.custom_tool_bar_edit);
         actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 
-        EditText searchText = actionBar.getCustomView().findViewById(R.id.searchText);
+        searchText = actionBar.getCustomView().findViewById(R.id.searchText);
         Button searchButton = actionBar.getCustomView().findViewById(R.id.searchButton);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 if(searchText.getEditableText().toString().trim().equals("")){
                     manager.getBeersFromAPI();
                 } else {
-                    manager.searchBeers(searchText.getEditableText().toString());
+                    manager.search(searchText.getEditableText().toString());
                 }
             }
         });
@@ -55,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+    }
+
+    public String getSearchText(){
+        return searchText.getEditableText().toString();
     }
 
 }

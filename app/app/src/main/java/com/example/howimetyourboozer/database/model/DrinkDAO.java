@@ -10,6 +10,9 @@ public interface DrinkDAO {
     @Query("SELECT * FROM drink")
     List<Drink> getAll();
 
+    @Query("SELECT * FROM drink WHERE name LIKE '%' || :name || '%'")
+    List<Drink> searchFavorites(String name);
+
     @Query("SELECT * FROM drink WHERE id=:id")
     Drink get(String id);
 

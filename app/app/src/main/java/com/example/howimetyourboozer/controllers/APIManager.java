@@ -52,9 +52,9 @@ public class APIManager {
             });
     }
 
-    public void searchBeersByName(String name) throws IOException {
+    public void searchBeersByName(String name, int page) throws IOException {
         Request request = new Request.Builder()
-                .url(apiSearchBeersBaseUrl + name)
+                .url(apiSearchBeersBaseUrl + name + "&p=" + page)
                 .build();
 
         client.newCall(request)

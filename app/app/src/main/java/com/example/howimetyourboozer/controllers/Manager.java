@@ -10,6 +10,7 @@ import com.example.howimetyourboozer.database.model.AppDatabase;
 import com.example.howimetyourboozer.database.model.Drink;
 import com.example.howimetyourboozer.database.model.DrinkDAO;
 import com.example.howimetyourboozer.ui.fragments.BeerFragment;
+import com.example.howimetyourboozer.ui.fragments.FavoritesFragment;
 import com.example.howimetyourboozer.ui.fragments.RecyclerViewFragment;
 
 import java.io.IOException;
@@ -56,18 +57,13 @@ public class Manager {
     public List<Drink> getFavorites() {
         return favorites;
     }
-    public void updateFavorites() {
-        if(drinkDAO == null) return;
-        AsyncTask.execute(new Runnable() {
+    public void setFavorites(List<Drink> drinks){
+        this.favorites = drinks;
+        if(mainActivity == null || recyclerViewFragment == null) return;
+        mainActivity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                favorites = drinkDAO.getAll();
-                mainActivity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        recyclerViewFragment.refreshRecycler();
-                    }
-                });
+                recyclerViewFragment.refreshRecycler();
             }
         });
     }
@@ -86,7 +82,12 @@ public class Manager {
 
     public void incrementNumberPageBeers(){
         numberPageBeers++;
-        getBeersFromAPI();
+        if(mainActivity == null) return;
+
+        if(mainActivity.getSearchText().trim().equals(""))
+            getBeersFromAPI();
+        else
+            searchBeers(mainActivity.getSearchText());
     }
 
     public void getBeersFromAPI() {
@@ -99,13 +100,36 @@ public class Manager {
         }
     }
 
-    public void searchBeers(String name) {
+    public void search(String name) {
+        if(recyclerViewFragment instanceof BeerFragment) {
+            Log.i("Beer", "search beers");
+            searchBeers(name);
+        } else if (recyclerViewFragment instanceof FavoritesFragment) {
+            Log.i("Beer", "search favorites");
+            searchFavorites(name);
+        }
+    }
+
+    private void searchBeers(String name) {
+        if(beers.size() >= 50*numberPageBeers) return;
+
         try {
-            apiManager.searchBeersByName(name);
+            apiManager.searchBeersByName(name, numberPageBeers);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    private void searchFavorites(String name) {
+        if(drinkDAO == null) return;
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                setFavorites(drinkDAO.searchFavorites(name));
+            }
+        });
+
+    }
+
 
     public void setBeers(List<Drink> listBeers){
         this.beers.addAll(listBeers);
@@ -119,6 +143,17 @@ public class Manager {
             });
         }
     }
+
+    public void updateFavorites() {
+        if(drinkDAO == null) return;
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                setFavorites(drinkDAO.getAll());
+            }
+        });
+    }
+
 
     public void addDrinkToFavorite(Drink d){
         if(drinkDAO == null) return;
