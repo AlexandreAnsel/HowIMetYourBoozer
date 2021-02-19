@@ -3,4 +3,8 @@
     <string name="title_home">Beer</string>
     <string name="title_dashboard">Wine</string>
     <string name="title_notifications">Favorites</string>
+    <string name="nameDrink">Name</string>
+    <string name="degree">Degree</string>
+    <string name="type">Type</string>
+    <string name="description">Description</string>
 </resources>
