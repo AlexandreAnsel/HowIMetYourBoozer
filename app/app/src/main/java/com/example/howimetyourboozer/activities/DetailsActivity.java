@@ -81,7 +81,7 @@ public class DetailsActivity extends AppCompatActivity {
                             manager.removeDrinkFromFavorite(drink);
                         else
                             manager.addDrinkToFavorite(drink);
-                        
+
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
