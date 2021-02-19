@@ -27,7 +27,6 @@
                         android:layout_weight="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/glass_mug_variant"
                         tools:layout_editor_absoluteX="96dp"
                         tools:layout_editor_absoluteY="104dp" />
 
@@ -38,26 +37,18 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/nameDrink"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:layout_weight="0.33"
-                            android:text="@string/nameDrink"/>
-
-                        <TextView
                             android:id="@+id/type"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
-                            android:layout_weight="0.33"
+                            android:layout_weight="0.5"
                             android:text="@string/type"/>
 
                         <TextView
                             android:id="@+id/degree"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.33"
+                            android:layout_weight="0.5"
                             android:gravity="center"
                             android:text="@string/degree"/>
                     </LinearLayout>
@@ -68,9 +59,46 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.3"
+            android:layout_weight="0.5"
             android:text="@string/description"
             android:gravity="center"/>
+
+        <LinearLayout
+            android:id="@+id/markLayout"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/markOne"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <ImageView
+                android:id="@+id/markTwo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <ImageView
+                android:id="@+id/markThree"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <ImageView
+                android:id="@+id/markFour"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <ImageView
+                android:id="@+id/markFive"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

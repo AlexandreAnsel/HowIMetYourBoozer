@@ -16,6 +16,9 @@ public interface DrinkDAO {
     @Query("SELECT * FROM drink WHERE id=:id")
     Drink get(String id);
 
+    @Update
+    void update(Drink drink);
+
     @Insert
     void insert(Drink drink);
 

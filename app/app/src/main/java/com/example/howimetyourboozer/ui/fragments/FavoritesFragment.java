@@ -24,7 +24,7 @@ public class FavoritesFragment extends RecyclerViewFragment{
 
     @Override
     public void getDataForRecycler(){
-        manager.updateFavorites();
+        manager.asyncUpdateFavorites();
     }
 
     @Override

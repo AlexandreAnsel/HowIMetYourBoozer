@@ -144,42 +144,46 @@ public class Manager {
         }
     }
 
-    public void updateFavorites() {
-        if(drinkDAO == null) return;
+    public void asyncUpdateFavorites() {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                setFavorites(drinkDAO.getAll());
+                updateFavorites();
             }
         });
+    }
+
+    public void updateFavorites() {
+        if(drinkDAO == null) return;
+        setFavorites(drinkDAO.getAll());
     }
 
 
     public void addDrinkToFavorite(Drink d){
         if(drinkDAO == null) return;
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                drinkDAO.insert(d);
-                updateFavorites();
-            }
-        });
-
+        drinkDAO.insert(d);
+        updateFavorites();
     }
 
     public void removeDrinkFromFavorite(Drink d) {
         if(drinkDAO == null) return;
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                drinkDAO.delete(d);
-                updateFavorites();
-            }
-        });
+        drinkDAO.delete(d);
+        updateFavorites();
     }
 
     public void clearBeers() {
         beers.clear();
         numberPageBeers = 1;
+    }
+
+    public void saveDrinkMark(Drink drink) {
+        if(drinkDAO == null) return;
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                drinkDAO.update(drink);
+                updateFavorites();
+            }
+        });
     }
 }

@@ -2,8 +2,10 @@ package com.example.howimetyourboozer.database.model;
 import androidx.annotation.NonNull;
 import androidx.room.*;
 
+import java.io.Serializable;
+
 @Entity(tableName = "drink")
-public class Drink implements Comparable<Drink> {
+public class Drink implements Serializable {
 
     @PrimaryKey
     @NonNull
@@ -85,11 +87,6 @@ public class Drink implements Comparable<Drink> {
 
     public void setMark(int mark) {
         this.mark = mark;
-    }
-
-    @Override
-    public int compareTo(Drink drink) {
-        return this.getId().compareTo(drink.getId());
     }
 
     @Override

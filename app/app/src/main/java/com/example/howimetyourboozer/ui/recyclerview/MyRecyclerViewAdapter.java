@@ -1,8 +1,10 @@
 package com.example.howimetyourboozer.ui.recyclerview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +17,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.howimetyourboozer.MainActivity;
 import com.example.howimetyourboozer.R;
+import com.example.howimetyourboozer.activities.DetailsActivity;
 import com.example.howimetyourboozer.controllers.Manager;
 import com.example.howimetyourboozer.database.model.Drink;
 
@@ -75,10 +79,15 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(manager.getFavorites().contains(drink))
-                    manager.removeDrinkFromFavorite(drink);
-                else
-                    manager.addDrinkToFavorite(drink);
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (manager.getFavorites().contains(drink))
+                            manager.removeDrinkFromFavorite(drink);
+                        else
+                            manager.addDrinkToFavorite(drink);
+                    }
+                });
             }
         });
         //Loading image using Glide framework
@@ -87,6 +96,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     private void openDetailsActivity(Drink drink){
         Log.i("Beers", "Click on : " + drink.getName());
+        Intent intent = new Intent(myContext, DetailsActivity.class);
+        intent.putExtra("drink", drink);
+        myContext.startActivity(intent);
     }
 
     // total number of rows
