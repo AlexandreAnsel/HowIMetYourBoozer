@@ -34,7 +34,7 @@ Pour la suite du projet, nous souhaiterions vous ajouter de nouvelles fonctionna
 
 * __Partager une boisson.__ Partager vos dernières dégustations à vos amis pour faire connaître vos préférées !
 
-* __Partager un profil.__ Partager votre profil ou celui de quelqu'un qui a les mêmes goûts que vous pour vous laissez tenter vers de nouveaux goûts !
+* __Partager un profil.__ Partager votre profil ou celui de quelqu'un qui a les mêmes goûts que vous pour vous laisser tenter vers de nouveaux goûts !
 
 * __Ajouter la localisation.__ Dites où vous avez bu votre verre pour que ceux qui désirent, puissent la retrouver. Ou pourquoi pas pour se donner rendez-vous et faire de nouvelles rencontres !
 
