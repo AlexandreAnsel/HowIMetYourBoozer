@@ -17,15 +17,18 @@ Elle se base sur l'api proposé par [brewerydb](https://www.brewerydb.com/). L'a
 
 * Rechercher une boisson parmi plus de 1100 référencées
 * Consulter une boisson avec son descriptif ainsi que ses caractéristiques
-* Ajouter un descriptif personnel
-* Ajouter une note personnelle
 * Ajouter une boisson à vos " j'aime "
+* Ajouter une note personnelle
 
 ## Utiliser l'application
 Pour utiliser l'application, branchez le câble depuis votre ordinateur jusqu'à votre téléphone puis exécutez le programme. Celà va créer simplement l'application sur votre téléphone et vous la garderez.
 
 ## L'avenir du projet
 Pour la suite du projet, nous souhaiterions vous ajouter de nouvelles fonctionnalités tel que :
+
+* __Nouveaux types de boisson.__ Vous pourrez consulter non seulement les bières, mais nous prévoyons les vins, champagnes et même les cocktails !
+
+* __Ajouter un descriptif personnel.__ Vous avez la possibilité d'ajouter une description personnelle pour chaque boisson que vous goûtez !
 
 * __Ajouter un album photo.__ Vous pourrez remplir à votre guise votre album avec des photos de vous sirotant vos meilleures bières !
 
